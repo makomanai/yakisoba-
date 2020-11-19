@@ -1,0 +1,133 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+*/
+
+html{
+    text-align: center;
+    max-width: 1300px;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    position: relative;
+    background-image: url("pinetree.jpg");
+	max-width: 1000px;
+}
+
+.jigi{
+    position: absolute;top:5%;left:1%;
+    max-width: 40%;
+}
+.jigi2{
+    position: absolute;top: 80%;left:80%;
+    max-width: 90%;
+}
+.jingi{
+    width:80%;
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body{
+    background-color:none ;
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+}
+
+
+
+header{
+    
+    text-align: center;
+}
+
+main{
+
+}
+
+footer{
+
+    background-color: #fff;
+    border-bottom:1px solid #ccc;
+    text-align: center;
+}
+p{
+    font-size:200%;
+    text-align: center;
+    border-bottom:1px solid #fff;
+    height:200px;
+}
+
+
+
+li:hover{
+    
+    color:#fff;
+}
+area {
+    position:relative;
+}
+.tooltip {
+    width:130px;
+    padding:10px;
+    font-size:12px;
+    margin:-30px 0 0;
+    background-color:#666;
+    color:#fff;
+    position:absolute;
+    right:-160px;
+    top: 50%;
+}
+.tooltip:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    border-color: rgba(102, 102, 102, 0);
+    border-right-color: #5e5e5e;
+    border-width: 8px;
+    margin-top: -8px;
+}

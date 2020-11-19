@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>video</title>
+</head>
+<body>
+    <div>
+        <img id="sampleImg1">
+        <img id="sampleImgRed">
+        <img id="sampleImgBlue">
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var $sampleImgs = [ 'sampleImg1', 'sampleImgRed', 'sampleImgBlue' ];
+    var $mouseEventSettings = {
+        sampleImg1: {
+            onmouseover: "img/トランプ.jpeg",
+            onmouseout: "http://alphasis.info/wp-content/uploads/2012/09/gimp-tutorial-round-button-color-variations-ex-mouse.png",
+            zoomH: 96,
+            zoomW: 96,
+            zoomOutH: 48,
+            zoomOutW: 48,
+            mouseoverLock: false,
+            mouseoutLock: false,
+        },
+        sampleImgRed: {
+            onmouseover: "img/トランプ２.jpeg",
+            onmouseout: "http://alphasis.info/wp-content/uploads/2012/09/gimp-tutorial-round-button-color-variations-ex-red-mouse.png",
+            zoomH: 96,
+            zoomW: 96,
+            zoomOutH: 48,
+            zoomOutW: 48,
+            mouseoverLock: false,
+            mouseoutLock: false,
+        },
+        sampleImgBlue: {
+            onmouseover: "img/トランプ３.jpeg",
+            onmouseout: "http://alphasis.info/wp-content/uploads/2012/09/gimp-tutorial-round-button-color-variations-ex-blue-mouse.png",
+            zoomH: 96,
+            zoomW: 96,
+            zoomOutH: 48,
+            zoomOutW: 48,
+            mouseoverLock: false,
+            mouseoutLock: false,
+        }
+    };
+    jQuery( function() {
+        for( var $i = 0; $i < $sampleImgs.length; $i++ ){
+            var $sampleImg = jQuery( '#' + $sampleImgs[$i] );
+            $sampleImg
+                .attr( 'src', $mouseEventSettings[$sampleImgs[$i]].onmouseout )
+                .css(
+                    {
+                        'height': $mouseEventSettings[$sampleImgs[$i]].zoomOutH + 'px',
+                        'width': $mouseEventSettings[$sampleImgs[$i]].zoomOutW + 'px',
+                    }
+                );
+            $sampleImg.mouseover( function () {
+                if( !( $mouseEventSettings[jQuery( this ).attr( 'id' )].mouseoverLock || $mouseEventSettings[jQuery( this ).attr( 'id' )].mouseoutLock ) ){
+                    $mouseEventSettings[jQuery( this ).attr( 'id' )].mouseoverLock = true;
+                    jQuery( this )
+                        .attr( 'src', $mouseEventSettings[jQuery( this ).attr( 'id' )].onmouseover )
+                        .animate(
+                            {
+                                height: $mouseEventSettings[jQuery( this ).attr( 'id' )].zoomH + 'px',
+                                width: $mouseEventSettings[jQuery( this ).attr( 'id' )].zoomW + 'px',
+                            },
+                            {
+                                duration: 'slow',
+                            }
+                    )
+                    .queue( function() {
+                        $mouseEventSettings[jQuery( this ).attr( 'id' )].mouseoverLock = false;
+                        jQuery( this ).dequeue();
+                    } );
+                }
+            } );
+            $sampleImg.mouseout( function () {
+                if( !$mouseEventSettings[jQuery( this ).attr( 'id' )].mouseoutLock ){
+                    $mouseEventSettings[jQuery( this ).attr( 'id' )].mouseoutLock = true;
+                    jQuery( this )
+                        .attr( 'src', $mouseEventSettings[jQuery( this ).attr( 'id' )].onmouseout )
+                        .animate(
+                            {
+                                height: $mouseEventSettings[jQuery( this ).attr( 'id' )].zoomOutH + 'px',
+                                width: $mouseEventSettings[jQuery( this ).attr( 'id' )].zoomOutW + 'px',
+                            },
+                            {
+                                duration: 'slow',
+                            }
+                        )
+                        .queue( function() {
+                            $mouseEventSettings[jQuery( this ).attr( 'id' )].mouseoutLock = false;
+                            jQuery( this ).dequeue();
+                        } );
+                }
+            } );
+        }
+    } );
+    </script>
